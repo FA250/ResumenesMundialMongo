@@ -1,1 +1,9 @@
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\ResumenMundialMongo.exe.config
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\ResumenMundialMongo.exe
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\ResumenMundialMongo.pdb
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.csprojResolveAssemblyReference.cache
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmIngreso.resources
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.Properties.Resources.resources
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.csproj.GenerateResource.Cache
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.exe
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.pdb
