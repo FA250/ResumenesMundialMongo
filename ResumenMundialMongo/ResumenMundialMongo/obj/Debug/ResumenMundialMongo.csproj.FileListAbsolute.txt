@@ -11,3 +11,10 @@ C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenM
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmPrincipalAficionado.resources
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmMostrarResumen.resources
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmComentarios.resources
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Bson.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Driver.Core.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Driver.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Bson.xml
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Driver.xml
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Driver.Core.xml
