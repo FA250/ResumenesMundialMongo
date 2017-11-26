@@ -32,7 +32,16 @@ namespace ResumenMundialMongo
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
+            if (txtIngresoCod.Text == "Administrador")
+            {
+                frmPrincipalAdmin Principal = new frmPrincipalAdmin();
+                Principal.Show();
+            }
+            else
+            {
+                frmPrincipalAficionado Principal = new frmPrincipalAficionado();
+                Principal.Show();
+            }
         }
     }
 }

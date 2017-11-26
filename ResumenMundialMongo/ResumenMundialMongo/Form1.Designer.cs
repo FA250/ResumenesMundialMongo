@@ -75,7 +75,7 @@
             // txtIngresoCod
             // 
             this.txtIngresoCod.Location = new System.Drawing.Point(609, 61);
-            this.txtIngresoCod.MaxLength = 50;
+            this.txtIngresoCod.MaxLength = 15;
             this.txtIngresoCod.Name = "txtIngresoCod";
             this.txtIngresoCod.Size = new System.Drawing.Size(238, 20);
             this.txtIngresoCod.TabIndex = 15;
@@ -125,7 +125,7 @@
             // txtRegistroCod
             // 
             this.txtRegistroCod.Location = new System.Drawing.Point(206, 63);
-            this.txtRegistroCod.MaxLength = 50;
+            this.txtRegistroCod.MaxLength = 15;
             this.txtRegistroCod.Name = "txtRegistroCod";
             this.txtRegistroCod.Size = new System.Drawing.Size(238, 20);
             this.txtRegistroCod.TabIndex = 15;
