@@ -166,6 +166,7 @@
             this.btnResumen.TabIndex = 19;
             this.btnResumen.Text = "Agregar resumen";
             this.btnResumen.UseVisualStyleBackColor = false;
+            this.btnResumen.Click += new System.EventHandler(this.btnResumen_Click);
             // 
             // pnVideos
             // 

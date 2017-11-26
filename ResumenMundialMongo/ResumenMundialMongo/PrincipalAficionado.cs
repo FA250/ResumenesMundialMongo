@@ -70,32 +70,7 @@ namespace ResumenMundialMongo
         
         private void btnAbrirResumen_Click(object sender, EventArgs e)
         {
-            if (txtSeleccionarResumen.Text.Trim() == "")
-            {
-                MessageBox.Show("Debe ingresar el número de partido", "Error");
-            }
-            else
-            {
-                ClaseMD MD = new ClaseMD();
-                ArrayList Partidos = MD.Select_Todos_Partidos();
-                bool PartidoExiste = false;
-                foreach (ArrayList Partido in Partidos)
-                {
-                    if (Partido[0].ToString() == txtSeleccionarResumen.Text)
-                    {
-                        PartidoExiste = true;
-                    }
-                }
-                if (PartidoExiste)
-                {
-                    frmMostrarResumen Resumen = new frmMostrarResumen();
-                    Resumen.Show();
-                }
-                else
-                {
-                    MessageBox.Show("El partido ingresado no existe", "Error");
-                }
-            }
+          
         }
     }
 }

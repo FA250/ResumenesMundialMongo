@@ -11,4 +11,3 @@ C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenM
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmPrincipalAficionado.resources
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmMostrarResumen.resources
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmComentarios.resources
-C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\Oracle.DataAccess.dll

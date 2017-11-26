@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ResumenMundialMongo.BD;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +37,36 @@ namespace ResumenMundialMongo
         {
             frmMostrarResumen Resumen = new frmMostrarResumen();
             Resumen.Show();
+        }
+
+        private void btnResumen_Click(object sender, EventArgs e)
+        {
+            if (txtSeleccionarResumen.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar el número de partido", "Error");
+            }
+            else
+            {
+                ClaseMD MD = new ClaseMD();
+                ArrayList Partidos = MD.Select_Todos_Partidos();
+                bool PartidoExiste = false;
+                foreach (ArrayList Partido in Partidos)
+                {
+                    if (Partido[0].ToString() == txtSeleccionarResumen.Text)
+                    {
+                        PartidoExiste = true;
+                    }
+                }
+                if (PartidoExiste)
+                {
+                    frmMostrarResumen Resumen = new frmMostrarResumen();
+                    Resumen.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El partido ingresado no existe", "Error");
+                }
+            }
         }
     }
 }
