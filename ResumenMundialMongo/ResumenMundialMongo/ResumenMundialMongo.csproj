@@ -61,10 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\ClaseAficionado.cs" />
     <Compile Include="BD\ClaseConexion.cs" />
     <Compile Include="BD\ClaseMD.cs" />
     <Compile Include="BD\ManejoMongoDB.cs" />
-    <Compile Include="ClaseEncriptacion.cs" />
+    <Compile Include="Clases\ClaseEncriptacion.cs" />
     <Compile Include="Comentarios.cs">
       <SubType>Form</SubType>
     </Compile>

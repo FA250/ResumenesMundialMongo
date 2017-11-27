@@ -57,7 +57,9 @@ namespace ResumenMundialMongo
 
             IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
 
-            IMongoCollection<BsonDocument> Aficionado = DB.GetCollection<BsonDocument>("Aficionado");
+            //Obtiene la coleccion de Afincionados
+            var Aficionados = DB.GetCollection<ClaseAficionado>("Aficionado");
+
             if (txtRegistroCod.Text.Trim() == "")
             {
                 MessageBox.Show("Debe ingresar el código del aficionado", "Error");
@@ -70,33 +72,44 @@ namespace ResumenMundialMongo
             {
                 MessageBox.Show("Debe ingresar la contraseña", "Error");
             }
-            else
+            else 
             {
-                //Convertir imagen de picture box en datos binarios para poderlo insertar en la BD
-                MemoryStream ms = new MemoryStream();
-                pctbImagenPerfil.Image.Save(ms, ImageFormat.Png);
-                byte[] imgData = new byte[ms.Length];
-                ms.Position = 0;
-                ms.Read(imgData, 0, imgData.Length);
+                var AficionadoEncontrado = Aficionados.AsQueryable().Where(aficionado => aficionado.codigo == txtRegistroCod.Text);
+                int CantEncontrada = AficionadoEncontrado.Count();
 
-                //Instancia clase para encriptar contrasena
-                ClaseEncriptacion EC = new ClaseEncriptacion();
-
-                //Crea documento de Bson para insertar la coleccion en la BD
-                BsonDocument DCAficionado = new BsonDocument
+                if (CantEncontrada >= 1)
                 {
-                    { "codigo" , txtRegistroCod.Text},
-                    { "contrasena", EC.EncryptKey(txtRegistroContrasena.Text).ToString()},
-                    { "foto", new BsonBinaryData(imgData) },
-                    { "mostrar_foto", new BsonBoolean(true) },
-                    { "correo_electronico", txtRegistroCorreo.Text },
-                    { "mostrar_correo", new BsonBoolean(true) },
-                    { "borrado", new BsonBoolean(false) },
-                    { "fecha_borrado", new DateTime(1, 1, 1, 0, 0, 0, DateTimeKind.Utc) }
-                };
+                    MessageBox.Show("Ya existe un aficionado con el codigo " + txtRegistroCod.Text, "Error");
+                }
+                else
+                {
+                    //Convertir imagen de picture box en datos binarios para poderlo insertar en la BD
+                    MemoryStream ms = new MemoryStream();
+                    pctbImagenPerfil.Image.Save(ms, ImageFormat.Png);
+                    byte[] imgData = new byte[ms.Length];
+                    ms.Position = 0;
+                    ms.Read(imgData, 0, imgData.Length);
 
-                Aficionado.InsertOne(DCAficionado);
-                MessageBox.Show("Se ha insertado correctamente el aficionado", "Aviso");
+                    //Instancia clase para encriptar contrasena
+                    ClaseEncriptacion EC = new ClaseEncriptacion();
+
+                    //Crea documento de Bson para insertar la coleccion en la BD
+                    BsonDocument DCAficionado = new BsonDocument
+                    {
+                        { "codigo" , txtRegistroCod.Text},
+                        { "contrasena", EC.EncryptKey(txtRegistroContrasena.Text).ToString()},
+                        { "foto", new BsonBinaryData(imgData) },
+                        { "mostrar_foto", new BsonBoolean(true) },
+                        { "correo_electronico", txtRegistroCorreo.Text },
+                        { "mostrar_correo", new BsonBoolean(true) },
+                        { "borrado", new BsonBoolean(false) },
+                        { "fecha_borrado", new DateTime(1, 1, 1, 0, 0, 0, DateTimeKind.Utc) }
+                    };
+
+                    IMongoCollection<BsonDocument> Aficionado = DB.GetCollection<BsonDocument>("Aficionado");
+                    Aficionado.InsertOne(DCAficionado);
+                    MessageBox.Show("Se ha insertado correctamente el aficionado", "Aviso");
+                }
             }
         }
     }

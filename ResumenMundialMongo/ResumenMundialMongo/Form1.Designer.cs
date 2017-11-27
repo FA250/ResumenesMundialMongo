@@ -177,7 +177,6 @@
             this.txtRegistroCorreo.Location = new System.Drawing.Point(206, 115);
             this.txtRegistroCorreo.MaxLength = 1000;
             this.txtRegistroCorreo.Name = "txtRegistroCorreo";
-            this.txtRegistroCorreo.PasswordChar = '*';
             this.txtRegistroCorreo.Size = new System.Drawing.Size(238, 20);
             this.txtRegistroCorreo.TabIndex = 15;
             // 
