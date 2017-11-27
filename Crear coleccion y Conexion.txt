@@ -27,3 +27,34 @@ db.ColeccionResumenes.insert({
 	borrado(bool)
 	fecha_borrado
 	})
+
+Alternativa mas similar a sql
+
+db.ColeccionResumenes.insert({
+	_id: resumen
+	numero_partido: <n>
+	res_partido : <resumen_de_parido>
+	videos: [{ <n videos> }]
+	})
+
+db.ColeccionResumenes.insert({
+	_id: comentario
+	numero_partido: <n>
+	numero_coment: <n>
+	aficionado: <codigo>
+	-fecha: <fecha_completa>
+	-mensaje: <mensaje>
+	-hilo_de:<numero_coment>
+	})
+
+db.ColeccionResumenes.insert({
+	_id: aficionado
+	codigo
+	contraseña
+	foto
+	mostrar_foto(bool)
+	correo_electronico
+	mostrar_correo(bool)
+	borrado(bool)
+	fecha_borrado
+	})
