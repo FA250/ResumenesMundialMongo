@@ -150,6 +150,7 @@
             this.Name = "frmPrincipalAficionado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal Aficionado";
+            this.Load += new System.EventHandler(this.frmPrincipalAficionado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctbImagenPerfil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

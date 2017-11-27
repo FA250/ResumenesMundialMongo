@@ -37,15 +37,56 @@ namespace ResumenMundialMongo
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (txtIngresoCod.Text == "Administrador")
+            //Coneccion con mongoDB
+            String connectionstr = "mongodb://localhost";
+            MongoClient client = new MongoClient(connectionstr);
+
+            IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
+
+            //Obtiene la coleccion de Afincionados
+            var Aficionados = DB.GetCollection<ClaseAficionado>("Aficionado");
+
+            if (txtIngresoCod.Text.Trim() == "")
             {
-                frmPrincipalAdmin Principal = new frmPrincipalAdmin();
-                Principal.Show();
+                MessageBox.Show("Debe ingresar el código del aficionado", "Error");
+            }
+            else if (txtIngresoContrasena.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar la contraseña", "Error");
             }
             else
             {
-                frmPrincipalAficionado Principal = new frmPrincipalAficionado();
-                Principal.Show();
+                var AficionadoEncontrado = Aficionados.AsQueryable().Where(aficionado => aficionado.codigo == txtIngresoCod.Text);
+                int CantEncontrada = AficionadoEncontrado.Count();
+                
+                //Instancia clase para desencriptar contrasena
+                ClaseEncriptacion EC = new ClaseEncriptacion();
+
+                if (CantEncontrada == 0)
+                {
+                    MessageBox.Show("No existe el aficionado con el codigo " + txtIngresoCod.Text, "Error");
+                }
+                else if (AficionadoEncontrado.First().borrado)
+                {
+                    MessageBox.Show("El aficionado con el codigo " + txtIngresoCod.Text + " fue borrado", "Error");
+                }
+                else if (EC.DecryptKey(AficionadoEncontrado.First().contrasena) != txtIngresoContrasena.Text)
+                {
+                    MessageBox.Show("La contraseña ingresada es incorrecta", "Error");
+                }
+                else
+                {
+                    if (txtIngresoCod.Text == "Administrador")
+                    {
+                        frmPrincipalAdmin Principal = new frmPrincipalAdmin(AficionadoEncontrado.First());
+                        Principal.Show();
+                    }
+                    else
+                    {
+                        frmPrincipalAficionado Principal = new frmPrincipalAficionado(AficionadoEncontrado.First());
+                        Principal.Show();
+                    }
+                }
             }
         }
 

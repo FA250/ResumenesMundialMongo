@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,11 @@ namespace ResumenMundialMongo
 {
     public partial class frmPrincipalAficionado : Form
     {
-        public frmPrincipalAficionado()
+        ClaseAficionado AficionadoLogeado;
+        public frmPrincipalAficionado(ClaseAficionado Aficionado)
         {
             InitializeComponent();
+            AficionadoLogeado = Aficionado;
         }
 
         private void btnCambiarFoto_Click(object sender, EventArgs e)
@@ -71,6 +74,23 @@ namespace ResumenMundialMongo
         private void btnAbrirResumen_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void frmPrincipalAficionado_Load(object sender, EventArgs e)
+        {
+            //Mostrar configuracion guardada
+            if (AficionadoLogeado.mostrar_correo)
+            {
+                chkbCorreo.Checked = true;
+            }
+            if (AficionadoLogeado.mostrar_foto)
+            {
+                chkbFoto.Checked = true;
+            }
+            //Mostrar imagen guardada
+            byte[] picture = AficionadoLogeado.foto;
+            pctbImagenPerfil.Image = Image.FromStream(new MemoryStream(picture));
+            pctbImagenPerfil.Refresh();
         }
     }
 }

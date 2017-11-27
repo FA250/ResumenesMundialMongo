@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,11 @@ namespace ResumenMundialMongo
 {
     public partial class frmPrincipalAdmin : Form
     {
-        public frmPrincipalAdmin()
+        ClaseAficionado AficionadoLogeado;
+        public frmPrincipalAdmin(ClaseAficionado Aficionado)
         {
             InitializeComponent();
+            AficionadoLogeado = Aficionado;
         }
         String PathVideos = "";
 
@@ -67,6 +70,23 @@ namespace ResumenMundialMongo
                     MessageBox.Show("El partido ingresado no existe", "Error");
                 }
             }
+        }
+
+        private void frmPrincipalAdmin_Load(object sender, EventArgs e)
+        {
+            //Mostrar configuracion guardada
+            if (AficionadoLogeado.mostrar_correo)
+            {
+                chkbCorreo.Checked = true;
+            }
+            if (AficionadoLogeado.mostrar_foto)
+            {
+                chkbFoto.Checked = true;
+            }
+            //Mostrar imagen guardada
+            byte[] picture = AficionadoLogeado.foto;
+            pctbImagenPerfil.Image = Image.FromStream(new MemoryStream(picture));
+            pctbImagenPerfil.Refresh();
         }
     }
 }
