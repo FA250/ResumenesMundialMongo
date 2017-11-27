@@ -1,10 +1,12 @@
-﻿using ResumenMundialMongo.BD;
+﻿using MongoDB.Driver;
+using ResumenMundialMongo.BD;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -39,38 +41,49 @@ namespace ResumenMundialMongo
 
             if (result == DialogResult.Yes)
             {
-                //TODO actualizar BD
+                try
+                {
+                    //Coneccion con mongoDB
+                    String connectionstr = "mongodb://localhost";
+                    MongoClient client = new MongoClient(connectionstr);
+
+                    IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
+
+                    //Obtiene la coleccion de Afincionados
+                    var Aficionados = DB.GetCollection<ClaseAficionado>("Aficionado");
+
+                    //Convertir imagen de picture box en datos binarios para poderlo insertar en la BD
+                    MemoryStream ms = new MemoryStream();
+                    pctbImagenPerfil.Image.Save(ms, ImageFormat.Png);
+                    byte[] imgData = new byte[ms.Length];
+                    ms.Position = 0;
+                    ms.Read(imgData, 0, imgData.Length);
+
+                    //variable para actualizar imagen
+                    var updateDef = Builders<ClaseAficionado>.Update.Set(o => o.foto, imgData);
+
+                    //Actualizar Imagen
+                    Aficionados.UpdateOne(o => o.codigo == AficionadoLogeado.codigo, updateDef);
+
+                    AficionadoLogeado.foto = imgData;
+
+                    MessageBox.Show("Se ha actualizado la imagen exitosamente", "Aviso");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Se produjo un error al actualizar la imagen, Error: \n" + er.ToString(), "Error");
+                }
             }
             else
             {
-                //TODO volver cambiar picturebox
+                //Mostrar imagen guardada
+                byte[] picture = AficionadoLogeado.foto;
+                pctbImagenPerfil.Image = Image.FromStream(new MemoryStream(picture));
+                pctbImagenPerfil.Refresh();
             }
         }
 
-        private void chkbFoto_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbFoto.Checked)
-            {
-                //TODO actualizar BD a true
-            }
-            else
-            {
-                //TODO actualizar BD a false
-            }
-        }
-
-        private void chkbCorreo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbCorreo.Checked)
-            {
-                //TODO actualizar BD a true
-            }
-            else
-            {
-                //TODO actualizar BD a false
-            }
-        }
-        
+              
         private void btnAbrirResumen_Click(object sender, EventArgs e)
         {
           
@@ -91,6 +104,107 @@ namespace ResumenMundialMongo
             byte[] picture = AficionadoLogeado.foto;
             pctbImagenPerfil.Image = Image.FromStream(new MemoryStream(picture));
             pctbImagenPerfil.Refresh();
+        }
+
+        private void chkbFoto_Click(object sender, EventArgs e)
+        {
+            //Coneccion con mongoDB
+            String connectionstr = "mongodb://localhost";
+            MongoClient client = new MongoClient(connectionstr);
+
+            IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
+
+            //Obtiene la coleccion de Afincionados
+            var Aficionados = DB.GetCollection<ClaseAficionado>("Aficionado");
+
+            if (chkbFoto.Checked)
+            {
+                try
+                {
+                    //variable para actualizar
+                    var updateDef = Builders<ClaseAficionado>.Update.Set(o => o.mostrar_foto, true);
+
+                    //Actualizar Valor
+                    Aficionados.UpdateOne(o => o.codigo == AficionadoLogeado.codigo, updateDef);
+
+                    AficionadoLogeado.mostrar_foto = true;
+
+                    MessageBox.Show("Se ha realizado la modificación exitosamente", "Aviso");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Se produjo un error al modificar el valor, Error" + er.ToString(), "Error");
+                }
+            }
+            else
+            {
+                try
+                {
+                    //variable para actualizar
+                    var updateDef = Builders<ClaseAficionado>.Update.Set(o => o.mostrar_foto, false);
+
+                    //Actualizar Valor
+                    Aficionados.UpdateOne(o => o.codigo == AficionadoLogeado.codigo, updateDef);
+
+                    AficionadoLogeado.mostrar_foto = false;
+
+                    MessageBox.Show("Se ha realizado la modificación exitosamente", "Aviso");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Se produjo un error al modificar el valor, Error" + er.ToString(), "Error");
+                }
+            }
+        }
+
+        private void chkbCorreo_Click(object sender, EventArgs e)
+        {
+            //Coneccion con mongoDB
+            String connectionstr = "mongodb://localhost";
+            MongoClient client = new MongoClient(connectionstr);
+
+            IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
+
+            //Obtiene la coleccion de Afincionados
+            var Aficionados = DB.GetCollection<ClaseAficionado>("Aficionado");
+            if (chkbCorreo.Checked)
+            {
+                try
+                {
+                    //variable para actualizar
+                    var updateDef = Builders<ClaseAficionado>.Update.Set(o => o.mostrar_correo, true);
+
+                    //Actualizar Valor
+                    Aficionados.UpdateOne(o => o.codigo == AficionadoLogeado.codigo, updateDef);
+
+                    AficionadoLogeado.mostrar_correo = true;
+
+                    MessageBox.Show("Se ha realizado la modificación exitosamente", "Aviso");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Se produjo un error al modificar el valor, Error" + er.ToString(), "Error");
+                }
+            }
+            else
+            {
+                try
+                {
+                    //variable para actualizar
+                    var updateDef = Builders<ClaseAficionado>.Update.Set(o => o.mostrar_correo, false);
+
+                    //Actualizar Valor
+                    Aficionados.UpdateOne(o => o.codigo == AficionadoLogeado.codigo, updateDef);
+
+                    AficionadoLogeado.mostrar_correo = false;
+
+                    MessageBox.Show("Se ha realizado la modificación exitosamente", "Aviso");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Se produjo un error al modificar el valor, Error" + er.ToString(), "Error");
+                }
+            }
         }
     }
 }

@@ -149,6 +149,7 @@ namespace ResumenMundialMongo
 
                     IMongoCollection<BsonDocument> Aficionado = DB.GetCollection<BsonDocument>("Aficionado");
                     Aficionado.InsertOne(DCAficionado);
+
                     MessageBox.Show("Se ha insertado correctamente el aficionado", "Aviso");
                 }
             }

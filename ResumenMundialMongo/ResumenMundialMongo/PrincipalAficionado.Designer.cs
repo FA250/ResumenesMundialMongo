@@ -94,7 +94,7 @@
             this.chkbFoto.TabIndex = 23;
             this.chkbFoto.Text = "Mostrar Foto";
             this.chkbFoto.UseVisualStyleBackColor = true;
-            this.chkbFoto.CheckedChanged += new System.EventHandler(this.chkbFoto_CheckedChanged);
+            this.chkbFoto.Click += new System.EventHandler(this.chkbFoto_Click);
             // 
             // chkbCorreo
             // 
@@ -107,7 +107,7 @@
             this.chkbCorreo.TabIndex = 23;
             this.chkbCorreo.Text = "Mostrar Correo";
             this.chkbCorreo.UseVisualStyleBackColor = true;
-            this.chkbCorreo.CheckedChanged += new System.EventHandler(this.chkbCorreo_CheckedChanged);
+            this.chkbCorreo.Click += new System.EventHandler(this.chkbCorreo_Click);
             // 
             // btnCambiarFoto
             // 

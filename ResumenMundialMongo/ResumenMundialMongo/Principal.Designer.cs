@@ -238,6 +238,7 @@
             this.btnCambiarFoto.TabIndex = 29;
             this.btnCambiarFoto.Text = "Cambiar foto";
             this.btnCambiarFoto.UseVisualStyleBackColor = false;
+            this.btnCambiarFoto.Click += new System.EventHandler(this.btnCambiarFoto_Click);
             // 
             // chkbCorreo
             // 
@@ -250,6 +251,7 @@
             this.chkbCorreo.TabIndex = 27;
             this.chkbCorreo.Text = "Mostrar Correo";
             this.chkbCorreo.UseVisualStyleBackColor = true;
+            this.chkbCorreo.Click += new System.EventHandler(this.chkbCorreo_Click);
             // 
             // chkbFoto
             // 
@@ -262,6 +264,7 @@
             this.chkbFoto.TabIndex = 28;
             this.chkbFoto.Text = "Mostrar Foto";
             this.chkbFoto.UseVisualStyleBackColor = true;
+            this.chkbFoto.Click += new System.EventHandler(this.chkbFoto_Click);
             // 
             // label7
             // 
