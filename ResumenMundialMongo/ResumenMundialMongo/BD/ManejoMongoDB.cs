@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ResumenMundialMongo.BD
 {
     class ManejoMongoDB
-    {
+    {//IMPORTANTE ESTA CLASE NUNCA SE USA!!!!
         static String connectionstr="mongodb://localhost";
         static MongoClient client = new MongoClient(connectionstr);
 

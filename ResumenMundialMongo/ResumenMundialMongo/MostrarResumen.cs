@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ResumenMundialMongo.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,19 @@ namespace ResumenMundialMongo
 {
     public partial class frmMostrarResumen : Form
     {
-        public frmMostrarResumen()
+        ClaseResumen ResumenSeleccionado = new ClaseResumen();
+        public frmMostrarResumen(ClaseResumen Resumen)
         {
             InitializeComponent();
+            ResumenSeleccionado = Resumen;
         }
 
         private void btnComentarios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMostrarResumen_Load(object sender, EventArgs e)
         {
 
         }

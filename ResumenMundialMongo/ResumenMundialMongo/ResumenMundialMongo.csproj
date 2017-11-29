@@ -65,7 +65,9 @@
     <Compile Include="BD\ClaseConexion.cs" />
     <Compile Include="BD\ClaseMD.cs" />
     <Compile Include="BD\ManejoMongoDB.cs" />
+    <Compile Include="Clases\ClaseComentario.cs" />
     <Compile Include="Clases\ClaseEncriptacion.cs" />
+    <Compile Include="Clases\ClaseResumen.cs" />
     <Compile Include="Comentarios.cs">
       <SubType>Form</SubType>
     </Compile>

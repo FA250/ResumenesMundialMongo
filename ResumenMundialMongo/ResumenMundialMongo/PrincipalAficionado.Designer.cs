@@ -36,6 +36,7 @@
             this.chkbCorreo = new System.Windows.Forms.CheckBox();
             this.btnCambiarFoto = new System.Windows.Forms.Button();
             this.pctbImagenPerfil = new System.Windows.Forms.PictureBox();
+            this.btnBorrarUsuario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pctbImagenPerfil)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +134,20 @@
             this.pctbImagenPerfil.TabIndex = 25;
             this.pctbImagenPerfil.TabStop = false;
             // 
+            // btnBorrarUsuario
+            // 
+            this.btnBorrarUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(103)))));
+            this.btnBorrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarUsuario.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrarUsuario.ForeColor = System.Drawing.Color.Red;
+            this.btnBorrarUsuario.Location = new System.Drawing.Point(423, 210);
+            this.btnBorrarUsuario.Name = "btnBorrarUsuario";
+            this.btnBorrarUsuario.Size = new System.Drawing.Size(165, 33);
+            this.btnBorrarUsuario.TabIndex = 24;
+            this.btnBorrarUsuario.Text = "Borrar Usuario";
+            this.btnBorrarUsuario.UseVisualStyleBackColor = false;
+            this.btnBorrarUsuario.Click += new System.EventHandler(this.btnBorrarUsuario_Click);
+            // 
             // frmPrincipalAficionado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +155,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(100)))), ((int)(((byte)(122)))));
             this.ClientSize = new System.Drawing.Size(701, 280);
             this.Controls.Add(this.pctbImagenPerfil);
+            this.Controls.Add(this.btnBorrarUsuario);
             this.Controls.Add(this.btnCambiarFoto);
             this.Controls.Add(this.chkbCorreo);
             this.Controls.Add(this.chkbFoto);
@@ -167,5 +183,6 @@
         private System.Windows.Forms.CheckBox chkbCorreo;
         private System.Windows.Forms.Button btnCambiarFoto;
         private System.Windows.Forms.PictureBox pctbImagenPerfil;
+        private System.Windows.Forms.Button btnBorrarUsuario;
     }
 }

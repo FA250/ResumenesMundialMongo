@@ -120,6 +120,7 @@
             this.Name = "frmMostrarResumen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mostrar Resumen";
+            this.Load += new System.EventHandler(this.frmMostrarResumen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

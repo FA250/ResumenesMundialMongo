@@ -59,6 +59,7 @@
             this.txtRegistroResumen.Name = "txtRegistroResumen";
             this.txtRegistroResumen.Size = new System.Drawing.Size(238, 20);
             this.txtRegistroResumen.TabIndex = 17;
+            this.txtRegistroResumen.Leave += new System.EventHandler(this.txtRegistroResumen_Leave);
             // 
             // label3
             // 

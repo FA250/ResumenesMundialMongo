@@ -44,6 +44,7 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.pctbImagenPerfil = new System.Windows.Forms.PictureBox();
             this.btnElegirFoto = new System.Windows.Forms.Button();
+            this.btnAyuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pctbImagenPerfil)).BeginInit();
             this.SuspendLayout();
             // 
@@ -218,6 +219,20 @@
             this.btnElegirFoto.UseVisualStyleBackColor = false;
             this.btnElegirFoto.Click += new System.EventHandler(this.btnElegirFoto_Click);
             // 
+            // btnAyuda
+            // 
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(103)))));
+            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAyuda.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(224)))), ((int)(((byte)(48)))));
+            this.btnAyuda.Location = new System.Drawing.Point(620, 261);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(165, 33);
+            this.btnAyuda.TabIndex = 9;
+            this.btnAyuda.Text = "Ayuda";
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnIngresar_Click);
+            // 
             // frmIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,10 +254,12 @@
             this.Controls.Add(this.label);
             this.Controls.Add(this.btnElegirFoto);
             this.Controls.Add(this.btnRegistrar);
+            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.btnIngresar);
             this.Name = "frmIngreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmIngreso_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pctbImagenPerfil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -267,6 +284,7 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.PictureBox pctbImagenPerfil;
         private System.Windows.Forms.Button btnElegirFoto;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }
 

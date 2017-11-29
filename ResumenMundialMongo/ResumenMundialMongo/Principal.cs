@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using ResumenMundialMongo.BD;
+using ResumenMundialMongo.Clases;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace ResumenMundialMongo
             InitializeComponent();
             AficionadoLogeado = Aficionado;
         }
-        String PathVideos = "";
+        String TextoPathVideos = "";
+        List<String> PathVideos = new List<String>();
 
         private void btnAgregarVideo_Click(object sender, EventArgs e)
         {
@@ -34,20 +36,43 @@ namespace ResumenMundialMongo
             if (open.ShowDialog() == DialogResult.OK)
             {
                 // image file path  
-                PathVideos += open.FileName +",";  
+                String PathV = open.FileName;
+                TextoPathVideos += PathV + ",";
+                PathVideos.Add(PathV);
             }
-            lblVideos.Text = PathVideos;
+            lblVideos.Text = TextoPathVideos;
         }
 
         private void btnAbrirResumen_Click(object sender, EventArgs e)
         {
-            frmMostrarResumen Resumen = new frmMostrarResumen();
-            Resumen.Show();
+            if (txtSeleccionarResumen.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar el número de partido", "Error");
+            }
+            else
+            {
+                frmMostrarResumen Resumen = new frmMostrarResumen();
+                Resumen.Show();
+            }
+        }
+
+        public static byte[] ReadFully(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
         }
 
         private void btnResumen_Click(object sender, EventArgs e)
         {
-            if (txtSeleccionarResumen.Text.Trim() == "")
+           if (txtRegistroResumen.Text.Trim() == "")
             {
                 MessageBox.Show("Debe ingresar el número de partido", "Error");
             }
@@ -58,15 +83,71 @@ namespace ResumenMundialMongo
                 bool PartidoExiste = false;
                 foreach (ArrayList Partido in Partidos)
                 {
-                    if (Partido[0].ToString() == txtSeleccionarResumen.Text)
+                    if (Partido[0].ToString() == txtRegistroResumen.Text)
                     {
                         PartidoExiste = true;
                     }
                 }
                 if (PartidoExiste)
                 {
-                    frmMostrarResumen Resumen = new frmMostrarResumen();
-                    Resumen.Show();
+                    //Coneccion con mongoDB
+                    String connectionstr = "mongodb://localhost";
+                    MongoClient client = new MongoClient(connectionstr);
+
+                    IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
+
+                    //Obtiene la coleccion de Resumenes de Partido
+                    var ResumenesPartidos = DB.GetCollection<ClaseResumen>("ResumenPartido");
+
+                    var ResumenEncontrado = ResumenesPartidos.AsQueryable().Where(resumen => resumen.numero_partido == Convert.ToInt32(txtRegistroResumen.Text));
+                    int CantEncontrada = ResumenEncontrado.Count();
+
+                     if (CantEncontrada >= 1)
+                    {
+                        MessageBox.Show("Ya existe un resumen con el partido " + txtRegistroResumen.Text, "Error");
+                    }
+                    if(txtRegistroResumen.Text.Trim()=="")
+                    {
+                        MessageBox.Show("Debe escribir el numero del partido", "Error");
+                    }
+                    else if (txtTextoResumen.Text.Trim() == "")
+                    {
+                        MessageBox.Show("Debe escribir el resumen del partido", "Error");
+                    }
+                    else
+                    {                  
+                        List<byte[]> Videos=new List<byte[]>();
+                        foreach(String Video in PathVideos){
+                            Stream video = File.OpenRead(Video);
+                            Videos.Add(ReadFully(video));
+                        }
+
+                        BsonArray VideosBson = new BsonArray { };
+
+                        int cont=1;
+                        foreach (byte[] V in Videos)
+                        {
+                            VideosBson.Add(new BsonDocument { { "codigoV", cont }, { "video", new BsonBinaryData ( V ) } });
+                            cont++;
+                        }
+
+                        //Crea documento de Bson para insertar la coleccion en la BD
+                        BsonDocument NuevoResumen = new BsonDocument
+                        {
+                            { "numero_partido" , txtRegistroResumen.Text},
+                            { "mensaje", txtTextoResumen.Text},
+                            { "equipos", lblEquipos.Text },
+                            { "videos", VideosBson},
+                        
+                        };
+
+
+
+                        IMongoCollection<BsonDocument> Resumen = DB.GetCollection<BsonDocument>("ResumenPartido");
+                        Resumen.InsertOne(NuevoResumen);
+
+                        MessageBox.Show("Se ha insertado correctamente el resumen", "Aviso");
+                    }                    
                 }
                 else
                 {
@@ -104,7 +185,7 @@ namespace ResumenMundialMongo
                 pctbImagenPerfil.Image = new Bitmap(open.FileName);
             }
 
-            //Mensaje de aviso preguntando si realmente desea salir
+            //Mensaje de aviso preguntando si realmente desea cambiar la foto
             DialogResult result = MessageBox.Show("¿Realmente desea cambiar la foto?", "Aviso", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -251,5 +332,29 @@ namespace ResumenMundialMongo
                 }
             }
         }
+
+        private void txtRegistroResumen_Leave(object sender, EventArgs e)
+        {
+            ClaseMD MD = new ClaseMD();
+            ArrayList Partidos = MD.Select_Todos_Partidos();
+            ArrayList Partido = new ArrayList();
+            bool PartidoExiste = false;
+            foreach (ArrayList Pt in Partidos)
+            {
+                if (Pt[0].ToString() == txtRegistroResumen.Text)
+                {
+                    Partido = Pt;
+                    PartidoExiste = true;
+                }
+            }
+            if (PartidoExiste)
+            {
+                lblEquipos.Text = Partido[1] + " - " + Partido[2];
+            }
+            else
+            {
+                MessageBox.Show("El partido ingresado no existe", "Error");
+            }
+        }                
     }
 }

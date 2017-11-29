@@ -36,7 +36,7 @@ namespace ResumenMundialMongo
                 pctbImagenPerfil.Image = new Bitmap(open.FileName);
             }
 
-            //Mensaje de aviso preguntando si realmente desea salir
+            //Mensaje de aviso preguntando si realmente desea cambiar la foto
             DialogResult result = MessageBox.Show("¿Realmente desea cambiar la foto?", "Aviso", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -83,10 +83,18 @@ namespace ResumenMundialMongo
             }
         }
 
-              
+
         private void btnAbrirResumen_Click(object sender, EventArgs e)
         {
-          
+            if (txtSeleccionarResumen.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar el número de partido", "Error");
+            }
+            else
+            {
+                frmMostrarResumen Resumen = new frmMostrarResumen();
+                Resumen.Show();
+            }
         }
 
         private void frmPrincipalAficionado_Load(object sender, EventArgs e)
@@ -203,6 +211,45 @@ namespace ResumenMundialMongo
                 catch (Exception er)
                 {
                     MessageBox.Show("Se produjo un error al modificar el valor, Error" + er.ToString(), "Error");
+                }
+            }
+        }
+
+        private void btnBorrarUsuario_Click(object sender, EventArgs e)
+        {
+
+            //Mensaje de aviso preguntando si realmente desea borrar la cuenta
+            DialogResult result = MessageBox.Show("¿Realmente desea eliminar su cuenta?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    //Coneccion con mongoDB
+                    String connectionstr = "mongodb://localhost";
+                    MongoClient client = new MongoClient(connectionstr);
+
+                    IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
+
+                    //Obtiene la coleccion de Afincionados
+                    var Aficionados = DB.GetCollection<ClaseAficionado>("Aficionado");
+
+
+                    //variable para actualizar imagen
+                    var updateDef = Builders<ClaseAficionado>.Update.Set(o => o.borrado, true);
+                    var updateDef1 = Builders<ClaseAficionado>.Update.Set(o => o.fecha_borrado, System.DateTime.Now);
+
+                    //Actualizar Imagen
+                    Aficionados.UpdateOne(o => o.codigo == AficionadoLogeado.codigo, updateDef);
+                    Aficionados.UpdateOne(o => o.codigo == AficionadoLogeado.codigo, updateDef1);
+
+                    MessageBox.Show("Se ha eliminado exitosamente", "Aviso");
+
+                    this.Close();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Se produjo un error al borrar su cuenta, Error: \n" + er.ToString(), "Error");
                 }
             }
         }

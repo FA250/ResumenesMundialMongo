@@ -150,8 +150,19 @@ namespace ResumenMundialMongo
                     IMongoCollection<BsonDocument> Aficionado = DB.GetCollection<BsonDocument>("Aficionado");
                     Aficionado.InsertOne(DCAficionado);
 
-                    MessageBox.Show("Se ha insertado correctamente el aficionado", "Aviso");
+                    MessageBox.Show("Se ha registrado correctamente el aficionado", "Aviso");
                 }
+            }
+        }
+
+        private void frmIngreso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Mensaje de aviso preguntando si realmente desea salir
+            DialogResult result = MessageBox.Show("¿Realmente desea salir?, Se cerraran las demás ventanas abiertas de la aplicación", "Aviso!", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel=true;
             }
         }
     }
