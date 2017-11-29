@@ -1,12 +1,16 @@
-http://www.c-sharpcorner.com/UploadFile/mirfan00/uploaddisplay-image-in-picture-box-using-C-Sharp/ - como elegir imagen desde la computadora C# (r)
-https://stackoverflow.com/questions/20796714/how-do-i-start-mongo-db-from-windows - Instalacion y iniciar mongoDB (r)
-https://www.tutorialspoint.com/mongodb/mongodb_quick_guide.htm - aprender a utilizar MongoDB en general (r)
-https://stackoverflow.com/questions/14714619/cant-update-or-uninstall-nuget-package-manager-in-vs2012 - como instalar driver de visual studio para la conexion con Mongo (r)
-https://stackoverflow.com/questions/4796914/store-images-in-a-mongodb-database - Como guardar videos y imagenes en mongoDB (r)
-https://docs.mongodb.com/manual/reference/bson-types/ - Tipos de datos en mongoDB (se utiliza Binary Data para guardar Imagenes y videos pequeÃ±os) (r)
-https://stackoverflow.com/questions/27621105/how-to-save-and-retrieve-binary-image-data-to-picture-box-in-winforms-using-c-sh - Como convertir una imagen en binario en C# para guardarlo en MongoDB (r)
-https://stackoverflow.com/questions/43456978/use-c-sharp-query-mongodb-document-field-values - Como seleccionar en C# una coleccion de mongo (r)
-https://stackoverflow.com/questions/16629983/how-to-display-in-a-picturebox-an-byte-array-image-from-a-sql-table - Mostrar en C# imagen guardada como byte[] (r)
-https://stackoverflow.com/questions/42507640/update-specific-field-in-mongodb-document - Actualizacion en mongoDB desde C# (r)
-
+http://www.c-sharpcorner.com/UploadFile/mirfan00/uploaddisplay-image-in-picture-box-using-C-Sharp/ - como elegir imagen desde la computadora C#
+https://stackoverflow.com/questions/20796714/how-do-i-start-mongo-db-from-windows - Instalacion y iniciar mongoDB
+https://www.tutorialspoint.com/mongodb/mongodb_quick_guide.htm - aprender a utilizar MongoDB en general
+https://stackoverflow.com/questions/14714619/cant-update-or-uninstall-nuget-package-manager-in-vs2012 - como instalar driver de visual studio para la conexion con Mongo
+https://stackoverflow.com/questions/4796914/store-images-in-a-mongodb-database - Como guardar videos y imagenes en mongoDB
+https://docs.mongodb.com/manual/reference/bson-types/ - Tipos de datos en mongoDB (se utiliza Binary Data para guardar Imagenes y videos pequeños)
+https://stackoverflow.com/questions/27621105/how-to-save-and-retrieve-binary-image-data-to-picture-box-in-winforms-using-c-sh - Como convertir una imagen en binario en C# para guardarlo en MongoDB
+https://stackoverflow.com/questions/43456978/use-c-sharp-query-mongodb-document-field-values - Como seleccionar en C# una coleccion de mongo
+https://stackoverflow.com/questions/16629983/how-to-display-in-a-picturebox-an-byte-array-image-from-a-sql-table - Mostrar en C# imagen guardada como byte[]
+https://stackoverflow.com/questions/42507640/update-specific-field-in-mongodb-document - Actualizacion en mongoDB desde C#
+https://stackoverflow.com/questions/221925/creating-a-byte-array-from-a-stream - Convertir video a variable byte[]
+https://msdn.microsoft.com/en-us/library/windows/desktop/dd564585(v=vs.85).aspx - Como agregar control para reproducir video
+https://stackoverflow.com/questions/8867032/how-to-remove-one-document-by-id-using-the-official-c-sharp-driver-for-mongo - Como borrar un registro de mongo desde C#
+http://csharp.net-informations.com/gui/cs-listview.htm - Manejar listView para poder mostrar los comentarios
+https://stackoverflow.com/questions/1192054/load-image-from-resources-area-of-project-in-c-sharp - Utilizar imagen guardada en los recursos del proyecto
 

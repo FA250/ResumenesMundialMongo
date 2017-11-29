@@ -38,6 +38,7 @@
             this.cmbVideos = new System.Windows.Forms.ComboBox();
             this.btnMostrarVideo = new System.Windows.Forms.Button();
             this.btnModificarResumen = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -100,7 +101,7 @@
             this.btnComentarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnComentarios.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComentarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(224)))), ((int)(((byte)(48)))));
-            this.btnComentarios.Location = new System.Drawing.Point(622, 639);
+            this.btnComentarios.Location = new System.Drawing.Point(626, 633);
             this.btnComentarios.Name = "btnComentarios";
             this.btnComentarios.Size = new System.Drawing.Size(165, 33);
             this.btnComentarios.TabIndex = 23;
@@ -150,7 +151,7 @@
             this.btnModificarResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarResumen.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarResumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(224)))), ((int)(((byte)(48)))));
-            this.btnModificarResumen.Location = new System.Drawing.Point(345, 639);
+            this.btnModificarResumen.Location = new System.Drawing.Point(245, 633);
             this.btnModificarResumen.Name = "btnModificarResumen";
             this.btnModificarResumen.Size = new System.Drawing.Size(165, 33);
             this.btnModificarResumen.TabIndex = 23;
@@ -158,6 +159,21 @@
             this.btnModificarResumen.UseVisualStyleBackColor = false;
             this.btnModificarResumen.Visible = false;
             this.btnModificarResumen.Click += new System.EventHandler(this.btnModificarResumen_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(103)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Red;
+            this.btnEliminar.Location = new System.Drawing.Point(416, 633);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(165, 33);
+            this.btnEliminar.TabIndex = 23;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmMostrarResumen
             // 
@@ -168,6 +184,7 @@
             this.Controls.Add(this.lblResumen);
             this.Controls.Add(this.cmbVideos);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificarResumen);
             this.Controls.Add(this.btnMostrarVideo);
             this.Controls.Add(this.btnComentarios);
@@ -196,5 +213,6 @@
         private System.Windows.Forms.ComboBox cmbVideos;
         private System.Windows.Forms.Button btnMostrarVideo;
         private System.Windows.Forms.Button btnModificarResumen;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

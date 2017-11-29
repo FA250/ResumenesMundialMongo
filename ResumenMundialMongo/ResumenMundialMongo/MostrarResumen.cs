@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using ResumenMundialMongo.Clases;
 using System;
 using System.Collections;
@@ -37,6 +38,7 @@ namespace ResumenMundialMongo
             if (Admin)
             {
                 btnModificarResumen.Visible = true;
+                btnEliminar.Visible = true;
             }
             lblNumeroPartido.Text = ResumenSeleccionado.numero_partido.ToString();
             lblEquipos.Text = ResumenSeleccionado.equipos;
@@ -73,6 +75,38 @@ namespace ResumenMundialMongo
             frmModificarResumen ModResumen = new frmModificarResumen(ResumenSeleccionado.mensaje, ResumenSeleccionado.numero_partido);
             ModResumen.Show();
             this.Close();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //Mensaje de aviso preguntando si realmente desea borrar el resumen
+            DialogResult result = MessageBox.Show("¿Realmente desea eliminar este resumen?, Se perdera permanentemente", "Aviso!", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    //Coneccion con mongoDB
+                    String connectionstr = "mongodb://localhost";
+                    MongoClient client = new MongoClient(connectionstr);
+
+                    IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
+
+                    //Obtiene la coleccion de Afincionados
+                    var Resumenes = DB.GetCollection<ClaseResumen>("ResumenPartido");
+                    
+                    //Actualizar Imagen
+                    Resumenes.DeleteOne(o => o.numero_partido == ResumenSeleccionado.numero_partido);
+
+                    MessageBox.Show("Se ha eliminado exitosamente", "Aviso");
+
+                    this.Close();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Se produjo un error al borrar su cuenta, Error: \n" + er.ToString(), "Error");
+                }
+            }
         }
     }
 }

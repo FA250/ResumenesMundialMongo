@@ -12,7 +12,7 @@ namespace ResumenMundialMongo.Clases
     {
         public ObjectId Id { get; set; }
         public String numero_partido { get; set; }
-        public String numero_comentario { get; set; }
+        public int numero_comentario { get; set; }
         public String aficionado { get; set; }
         public DateTime fecha { get; set; }
         public String mensaje { get; set; }
