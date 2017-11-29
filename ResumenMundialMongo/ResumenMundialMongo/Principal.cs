@@ -51,8 +51,27 @@ namespace ResumenMundialMongo
             }
             else
             {
-                frmMostrarResumen Resumen = new frmMostrarResumen();
-                Resumen.Show();
+                //Coneccion con mongoDB
+                String connectionstr = "mongodb://localhost";
+                MongoClient client = new MongoClient(connectionstr);
+
+                IMongoDatabase DB = client.GetDatabase("ResumenesMundial");
+
+                //Obtiene la coleccion de Afincionados
+                var ResumenP = DB.GetCollection<ClaseResumen>("ResumenPartido");
+
+                var ResumenEncontrado = ResumenP.AsQueryable().Where(resumen => resumen.numero_partido == txtSeleccionarResumen.Text);
+                int CantEncontrada = ResumenEncontrado.Count();
+
+                if (CantEncontrada == 0)
+                {
+                    MessageBox.Show("El partido ingresado no tiene ningún resumen", "Error");
+                }
+                else
+                {
+                    frmMostrarResumen Resumen = new frmMostrarResumen(ResumenEncontrado.First(),true);
+                    Resumen.Show();
+                }
             }
         }
 
@@ -99,7 +118,7 @@ namespace ResumenMundialMongo
                     //Obtiene la coleccion de Resumenes de Partido
                     var ResumenesPartidos = DB.GetCollection<ClaseResumen>("ResumenPartido");
 
-                    var ResumenEncontrado = ResumenesPartidos.AsQueryable().Where(resumen => resumen.numero_partido == Convert.ToInt32(txtRegistroResumen.Text));
+                    var ResumenEncontrado = ResumenesPartidos.AsQueryable().Where(resumen => resumen.numero_partido == txtRegistroResumen.Text);
                     int CantEncontrada = ResumenEncontrado.Count();
 
                      if (CantEncontrada >= 1)

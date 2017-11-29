@@ -119,7 +119,7 @@
             // txtTextoResumen
             // 
             this.txtTextoResumen.Location = new System.Drawing.Point(191, 189);
-            this.txtTextoResumen.MaxLength = 15;
+            this.txtTextoResumen.MaxLength = 100000;
             this.txtTextoResumen.Multiline = true;
             this.txtTextoResumen.Name = "txtTextoResumen";
             this.txtTextoResumen.Size = new System.Drawing.Size(297, 181);

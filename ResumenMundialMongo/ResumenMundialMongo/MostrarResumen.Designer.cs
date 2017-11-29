@@ -34,6 +34,10 @@
             this.lblEquipos = new System.Windows.Forms.Label();
             this.lblResumen = new System.Windows.Forms.Label();
             this.btnComentarios = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbVideos = new System.Windows.Forms.ComboBox();
+            this.btnMostrarVideo = new System.Windows.Forms.Button();
+            this.btnModificarResumen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -82,12 +86,11 @@
             // 
             // lblResumen
             // 
-            this.lblResumen.AutoSize = true;
             this.lblResumen.Font = new System.Drawing.Font("Minion Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(224)))), ((int)(((byte)(48)))));
-            this.lblResumen.Location = new System.Drawing.Point(29, 87);
+            this.lblResumen.Location = new System.Drawing.Point(29, 58);
             this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(90, 28);
+            this.lblResumen.Size = new System.Drawing.Size(661, 359);
             this.lblResumen.TabIndex = 17;
             this.lblResumen.Text = "Resumen\r";
             // 
@@ -105,15 +108,70 @@
             this.btnComentarios.UseVisualStyleBackColor = false;
             this.btnComentarios.Click += new System.EventHandler(this.btnComentarios_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Minion Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(224)))), ((int)(((byte)(48)))));
+            this.label2.Location = new System.Drawing.Point(12, 431);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 28);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Video";
+            // 
+            // cmbVideos
+            // 
+            this.cmbVideos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVideos.FormattingEnabled = true;
+            this.cmbVideos.Location = new System.Drawing.Point(82, 435);
+            this.cmbVideos.Name = "cmbVideos";
+            this.cmbVideos.Size = new System.Drawing.Size(173, 21);
+            this.cmbVideos.TabIndex = 26;
+            this.cmbVideos.SelectedIndexChanged += new System.EventHandler(this.cmbVideos_SelectedIndexChanged);
+            // 
+            // btnMostrarVideo
+            // 
+            this.btnMostrarVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(103)))));
+            this.btnMostrarVideo.Enabled = false;
+            this.btnMostrarVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarVideo.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarVideo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(224)))), ((int)(((byte)(48)))));
+            this.btnMostrarVideo.Location = new System.Drawing.Point(43, 468);
+            this.btnMostrarVideo.Name = "btnMostrarVideo";
+            this.btnMostrarVideo.Size = new System.Drawing.Size(165, 33);
+            this.btnMostrarVideo.TabIndex = 23;
+            this.btnMostrarVideo.Text = "Ver Video";
+            this.btnMostrarVideo.UseVisualStyleBackColor = false;
+            this.btnMostrarVideo.Click += new System.EventHandler(this.btnMostrarVideo_Click);
+            // 
+            // btnModificarResumen
+            // 
+            this.btnModificarResumen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(52)))), ((int)(((byte)(103)))));
+            this.btnModificarResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarResumen.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarResumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(224)))), ((int)(((byte)(48)))));
+            this.btnModificarResumen.Location = new System.Drawing.Point(275, 468);
+            this.btnModificarResumen.Name = "btnModificarResumen";
+            this.btnModificarResumen.Size = new System.Drawing.Size(165, 33);
+            this.btnModificarResumen.TabIndex = 23;
+            this.btnModificarResumen.Text = "Modificar";
+            this.btnModificarResumen.UseVisualStyleBackColor = false;
+            this.btnModificarResumen.Visible = false;
+            this.btnModificarResumen.Click += new System.EventHandler(this.btnComentarios_Click);
+            // 
             // frmMostrarResumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(100)))), ((int)(((byte)(122)))));
             this.ClientSize = new System.Drawing.Size(702, 513);
+            this.Controls.Add(this.lblResumen);
+            this.Controls.Add(this.cmbVideos);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnModificarResumen);
+            this.Controls.Add(this.btnMostrarVideo);
             this.Controls.Add(this.btnComentarios);
             this.Controls.Add(this.lblEquipos);
-            this.Controls.Add(this.lblResumen);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNumeroPartido);
             this.Controls.Add(this.label3);
@@ -134,5 +192,9 @@
         private System.Windows.Forms.Label lblEquipos;
         private System.Windows.Forms.Label lblResumen;
         private System.Windows.Forms.Button btnComentarios;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbVideos;
+        private System.Windows.Forms.Button btnMostrarVideo;
+        private System.Windows.Forms.Button btnModificarResumen;
     }
 }

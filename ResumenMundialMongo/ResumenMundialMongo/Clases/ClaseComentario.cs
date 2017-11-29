@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ResumenMundialMongo.Clases
 {
-    class ClaseComentario
+    public class ClaseComentario
     {
         public ObjectId Id { get; set; }
         public int numero_partido { get; set; }

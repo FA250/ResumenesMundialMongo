@@ -18,3 +18,13 @@ C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenM
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Bson.xml
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Driver.xml
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\MongoDB.Driver.Core.xml
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\Interop.WMPLib.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\AxInterop.WMPLib.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.csproj.ResolveComReference.cache
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\Interop.WMPLib.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\AxInterop.WMPLib.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\Interop.AXVLC.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\AxInterop.AXVLC.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\Interop.AXVLC.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\AxInterop.AXVLC.dll
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmMostrarVideo.resources

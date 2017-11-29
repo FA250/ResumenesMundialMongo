@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace ResumenMundialMongo.Clases
 {
-    public class ClaseResumen
+    public class ClaseVideo
     {
         public ObjectId Id { get; set; }
-        public String numero_partido { get; set; }
-        public String mensaje { get; set; }
-        public String equipos { get; set; }
-        public List<ClaseVideo> videos { get; set; }
-
+        public int codigoV { get; set; }
+        public byte[] video { get; set; }
     }
 }
