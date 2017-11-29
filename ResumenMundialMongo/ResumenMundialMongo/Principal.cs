@@ -69,7 +69,7 @@ namespace ResumenMundialMongo
                 }
                 else
                 {
-                    frmMostrarResumen Resumen = new frmMostrarResumen(ResumenEncontrado.First(),true);
+                    frmMostrarResumen Resumen = new frmMostrarResumen(ResumenEncontrado.First(),true,AficionadoLogeado.codigo);
                     Resumen.Show();
                 }
             }
@@ -121,11 +121,11 @@ namespace ResumenMundialMongo
                     var ResumenEncontrado = ResumenesPartidos.AsQueryable().Where(resumen => resumen.numero_partido == txtRegistroResumen.Text);
                     int CantEncontrada = ResumenEncontrado.Count();
 
-                     if (CantEncontrada >= 1)
+                    if (CantEncontrada >= 1)
                     {
                         MessageBox.Show("Ya existe un resumen con el partido " + txtRegistroResumen.Text, "Error");
                     }
-                    if(txtRegistroResumen.Text.Trim()=="")
+                    else if(txtRegistroResumen.Text.Trim()=="")
                     {
                         MessageBox.Show("Debe escribir el numero del partido", "Error");
                     }

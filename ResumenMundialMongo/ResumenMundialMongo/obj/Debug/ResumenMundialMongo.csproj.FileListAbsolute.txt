@@ -28,3 +28,4 @@ C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenM
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\Interop.AXVLC.dll
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\bin\Debug\AxInterop.AXVLC.dll
 C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmMostrarVideo.resources
+C:\Fabian\2017\Segundo Semestre\BD\Proyectos\Investigacion Mongo\GitHub\ResumenMundialMongo\ResumenMundialMongo\obj\Debug\ResumenMundialMongo.frmModificarResumen.resources

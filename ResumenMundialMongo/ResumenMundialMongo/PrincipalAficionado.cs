@@ -111,7 +111,7 @@ namespace ResumenMundialMongo
                 }
                 else
                 {
-                    frmMostrarResumen Resumen = new frmMostrarResumen(ResumenEncontrado.First(), false);
+                    frmMostrarResumen Resumen = new frmMostrarResumen(ResumenEncontrado.First(), false,AficionadoLogeado.codigo);
                     Resumen.Show();
                 }
             }

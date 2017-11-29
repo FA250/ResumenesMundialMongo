@@ -17,16 +17,19 @@ namespace ResumenMundialMongo
     {
         ClaseResumen ResumenSeleccionado = new ClaseResumen();
         bool Admin;
-        public frmMostrarResumen(ClaseResumen Resumen,bool Administrador)
+        String aficionadoActual="";
+        public frmMostrarResumen(ClaseResumen Resumen,bool Administrador, String Codigo_Aficionado)
         {
             InitializeComponent();
             ResumenSeleccionado = Resumen;
             Admin = Administrador;
+            aficionadoActual = Codigo_Aficionado;
         }
 
         private void btnComentarios_Click(object sender, EventArgs e)
         {
-
+            frmComentarios Comentario = new frmComentarios(ResumenSeleccionado.numero_partido, aficionadoActual);
+            Comentario.Show();
         }
 
         private void frmMostrarResumen_Load(object sender, EventArgs e)
@@ -63,6 +66,13 @@ namespace ResumenMundialMongo
         private void cmbVideos_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnMostrarVideo.Enabled = true;
+        }
+
+        private void btnModificarResumen_Click(object sender, EventArgs e)
+        {
+            frmModificarResumen ModResumen = new frmModificarResumen(ResumenSeleccionado.mensaje, ResumenSeleccionado.numero_partido);
+            ModResumen.Show();
+            this.Close();
         }
     }
 }
