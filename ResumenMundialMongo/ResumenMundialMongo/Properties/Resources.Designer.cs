@@ -61,6 +61,16 @@ namespace ResumenMundialMongo.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] manual_de_usuario_resumen_de_los_partidos {
+            get {
+                object obj = ResourceManager.GetObject("manual_de_usuario_resumen_de_los_partidos", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Persona {

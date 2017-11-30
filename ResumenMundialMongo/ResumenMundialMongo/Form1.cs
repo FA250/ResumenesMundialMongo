@@ -165,5 +165,16 @@ namespace ResumenMundialMongo
                 e.Cancel=true;
             }
         }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            //get current folderpath of the .exe
+            string ProgramPath = AppDomain.CurrentDomain.BaseDirectory;
+            //jump back relative to the .exe-Path to the Resources Path
+            string FileName = string.Format("{0}Resources\\manual_de_usuario_resumen_de_los_partidos.pdf", Path.GetFullPath(Path.Combine(ProgramPath, @"..\..\")));
+
+            //Open PDF
+            System.Diagnostics.Process.Start(@"" + FileName + "");
+        }
     }
 }

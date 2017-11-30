@@ -231,7 +231,7 @@
             this.btnAyuda.TabIndex = 9;
             this.btnAyuda.Text = "Ayuda";
             this.btnAyuda.UseVisualStyleBackColor = false;
-            this.btnAyuda.Click += new System.EventHandler(this.btnIngresar_Click);
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // frmIngreso
             // 

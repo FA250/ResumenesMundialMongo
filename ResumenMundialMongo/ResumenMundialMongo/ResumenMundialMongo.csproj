@@ -168,6 +168,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\manual_de_usuario_resumen_de_los_partidos.pdf" />
     <None Include="Resources\Persona.png" />
   </ItemGroup>
   <ItemGroup>
