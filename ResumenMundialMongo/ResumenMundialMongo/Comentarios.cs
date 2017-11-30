@@ -1,4 +1,6 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using ResumenMundialMongo.Clases;
 using System;
@@ -19,6 +21,7 @@ namespace ResumenMundialMongo
     {
         String numeroPartidoSeleccionado;
         String aficionadoActual="";
+        
         public frmComentarios(String numero_partido, String aficionado)
         {
             InitializeComponent();
@@ -41,14 +44,14 @@ namespace ResumenMundialMongo
             int CantEncontrada = ComentariosExistentes.Count();
 
             BsonArray hilo =new BsonArray();
-                        
+           
             //Crea documento de Bson para insertar la coleccion en la BD
             BsonDocument NuevoComentario = new BsonDocument
                     {
                         { "numero_partido" , numeroPartidoSeleccionado},
                         { "numero_comentario" , CantEncontrada+1},
                         { "aficionado", aficionadoActual},
-                        { "fecha", System.DateTime.Now},
+                        { "fecha", System.DateTime.UtcNow.ToLocalTime()},
                         { "mensaje", txtComentarioNuevo.Text},
                         { "hilo", hilo}
                         
@@ -59,8 +62,7 @@ namespace ResumenMundialMongo
             Comentario.InsertOne(NuevoComentario);
 
             MessageBox.Show("Se ha comentado de manera exitosa", "Aviso");
-
-            lstvComentarios.Clear();
+                        
             ActualizarComentarios();               
         }
 
@@ -83,6 +85,7 @@ namespace ResumenMundialMongo
 
         private void ActualizarComentarios()
         {
+            lstvComentarios.Clear();
             //Coneccion con mongoDB
             String connectionstr = "mongodb://localhost";
             MongoClient client = new MongoClient(connectionstr);
@@ -97,14 +100,17 @@ namespace ResumenMundialMongo
             lstvComentarios.View = View.Details;
 
             //Columnas
-            lstvComentarios.Columns.Add("Aficionado", 100);
+            lstvComentarios.Columns.Add("Aficionado", 200);
             lstvComentarios.Columns.Add("Comentario", 500);
             lstvComentarios.Columns.Add("Correo", 150);
             lstvComentarios.Columns.Add("Fecha", 150);
 
-            ImageList imgs = new ImageList();
-
+            
             //Agregar imagenes
+
+            var imgs = new ImageList();            
+            
+            int cont = 0;
             foreach (ClaseComentario Comentario in ComentariosExistentes)
             {
                 //Obtiene la coleccion de aficionado
@@ -112,26 +118,29 @@ namespace ResumenMundialMongo
                 var AficionadosSeleccionados = Aficionados.AsQueryable().Where(comentario => comentario.codigo == Comentario.aficionado);
                 if (AficionadosSeleccionados.First().borrado)
                 {
-                    imgs.Images.Add(ResumenMundialMongo.Properties.Resources.Persona);   
+                    imgs.Images.Add(cont.ToString(),ResumenMundialMongo.Properties.Resources.Persona);   
                 }
                 else if (AficionadosSeleccionados.First().mostrar_foto)
                 {
                     byte[] picture = AficionadosSeleccionados.First().foto;
-                    imgs.Images.Add(Image.FromStream(new MemoryStream(picture)));
+                    imgs.Images.Add(cont.ToString(),Image.FromStream(new MemoryStream(picture)));
                 }
                 else
                 {
-                    imgs.Images.Add(ResumenMundialMongo.Properties.Resources.Persona);
+                    imgs.Images.Add(cont.ToString(),ResumenMundialMongo.Properties.Resources.Persona);
                 }
+                cont++;
             }
 
+            imgs.ImageSize = new Size(64, 76);
+            imgs.ColorDepth = ColorDepth.Depth24Bit;
             lstvComentarios.SmallImageList = imgs;
 
             //Agregar Comentarios
-            int cont=0;
+            cont=0;
             foreach (ClaseComentario Comentario in ComentariosExistentes)
             {
-                string[] ComentarioParaMostrar = new string[4];
+                string[] ComentarioParaMostrar = new string[5];
 
                 
                 ComentarioParaMostrar[1] = Comentario.mensaje;
@@ -157,11 +166,33 @@ namespace ResumenMundialMongo
 
                 ComentarioParaMostrar[3] = Comentario.fecha.ToString();
 
-                ListViewItem itm = new ListViewItem(ComentarioParaMostrar);
-                lstvComentarios.Items.Add(itm);
+                ComentarioParaMostrar[4] = Comentario.numero_comentario.ToString();
 
+                var itm = new ListViewItem(ComentarioParaMostrar);                
+                itm.ImageKey = cont.ToString();
+                itm.Tag = AficionadosSeleccionados.First().codigo;                
+                lstvComentarios.Items.Add(itm);
                 cont++;
             }            
+        }
+
+        private void lstvComentarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstvComentarios.SelectedItems.Count == 0)
+                return;
+
+            ListViewItem item = lstvComentarios.SelectedItems[0];
+
+            frmResponderComentario RComent = new frmResponderComentario(item.Tag.ToString(), item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text, numeroPartidoSeleccionado, aficionadoActual, Convert.ToInt32(item.SubItems[4].Text));
+            RComent.Owner = this;
+            RComent.Show();
+
+            
+        }
+
+        private void frmComentarios_Activated(object sender, EventArgs e)
+        {
+            ActualizarComentarios();
         }
     }
 }

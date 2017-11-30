@@ -95,7 +95,7 @@ namespace ResumenMundialMongo
                     //Obtiene la coleccion de Afincionados
                     var Resumenes = DB.GetCollection<ClaseResumen>("ResumenPartido");
                     
-                    //Actualizar Imagen
+                    //Borrar Resumen
                     Resumenes.DeleteOne(o => o.numero_partido == ResumenSeleccionado.numero_partido);
 
                     MessageBox.Show("Se ha eliminado exitosamente", "Aviso");

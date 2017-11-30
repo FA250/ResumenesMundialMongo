@@ -257,7 +257,7 @@ namespace ResumenMundialMongo
 
                     //variable para actualizar imagen
                     var updateDef = Builders<ClaseAficionado>.Update.Set(o => o.borrado, true);
-                    var updateDef1 = Builders<ClaseAficionado>.Update.Set(o => o.fecha_borrado, System.DateTime.Now);
+                    var updateDef1 = Builders<ClaseAficionado>.Update.Set(o => o.fecha_borrado, System.DateTime.UtcNow.ToLocalTime());
 
                     //Actualizar Imagen
                     Aficionados.UpdateOne(o => o.codigo == AficionadoLogeado.codigo, updateDef);

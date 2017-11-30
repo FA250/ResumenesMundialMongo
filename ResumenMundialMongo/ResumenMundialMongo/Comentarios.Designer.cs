@@ -64,6 +64,7 @@
             this.lstvComentarios.Size = new System.Drawing.Size(1069, 465);
             this.lstvComentarios.TabIndex = 26;
             this.lstvComentarios.UseCompatibleStateImageBehavior = false;
+            this.lstvComentarios.SelectedIndexChanged += new System.EventHandler(this.lstvComentarios_SelectedIndexChanged);
             // 
             // frmComentarios
             // 
@@ -77,6 +78,7 @@
             this.Name = "frmComentarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comentarios";
+            this.Activated += new System.EventHandler(this.frmComentarios_Activated);
             this.Load += new System.EventHandler(this.frmComentarios_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
