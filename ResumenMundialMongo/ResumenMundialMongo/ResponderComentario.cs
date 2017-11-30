@@ -148,7 +148,7 @@ namespace ResumenMundialMongo
             //Obtiene la coleccion de Resumenes de Partido
             var Comentarios = DB.GetCollection<ClaseComentario>("Comentario");
             var ComentariosExistentes1 = Comentarios.AsQueryable().Where(comentario => comentario.numero_partido == numeroPartidoSeleccionado && comentario.numero_comentario == Num_Comentario);
-            var ComentariosExistentes = ComentariosExistentes1.First().hilo;
+            var ComentariosExistentes = ComentariosExistentes1.First().hilo.OrderByDescending(co => co.fecha);
 
 
             //Propiedades listview
